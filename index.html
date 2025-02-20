@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Resume</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>PROFILE</h1>
+
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="profile-pic">
+                <input type="file" id="upload" accept="image/*" hidden>
+                <label for="upload" id="upload-label">Upload Photo</label>
+                <img id="profile-img" src="" alt="Profile Picture">
+            </div>
+            <div class="info">
+                <h2 contenteditable="true">ABC</h2>
+                <p contenteditable="true">Designation: XYZ</p>
+            </div>
+            <div class="contact">
+                <p contenteditable="true">Address: ABC <button class="edit-btn">Edit</button></p>
+                <p contenteditable="true">Mobile: 1234567890</p>
+                <p contenteditable="true">Email: xyz@gmail.com</p>
+            </div>
+        </div>
+
+        <!-- Main Sections (Side by Side) -->
+        <div class="main-sections">
+            <!-- Experience -->
+            <div class="section">
+                <h3>Experience <button class="edit-btn">Edit</button></h3>
+                <p contenteditable="true"><strong>Company Name:</strong> ABC</p>
+                <p contenteditable="true"><strong>Period:</strong> Jan 2015 - Present</p>
+                <p><strong>Roles & Responsibilities:</strong></p>
+                <ul contenteditable="true">
+                    <li>Developed web applications</li>
+                    <li>Worked with JavaScript frameworks</li>
+                </ul>
+            </div>
+
+            <!-- Skills -->
+            <div class="section">
+                <h3>Skills <button class="edit-btn">Edit</button></h3>
+                <ul contenteditable="true">
+                    <li>Developer</li>
+                    <li>Tester</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-sections">
+            <!-- Programming Languages -->
+            <div class="section">
+                <h3>Programming Languages <button class="edit-btn">Edit</button></h3>
+                <ul contenteditable="true">
+                    <li>C</li>
+                    <li>C++</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+
+            <!-- Certifications -->
+            <div class="section">
+                <h3>Certifications <button class="edit-btn">Edit</button></h3>
+                <ul contenteditable="true">
+                    <li>XYZ Certified</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="education-section">
+            <h3>Education <button id="add-row">Add Row</button> <button id="add-column">Add Column</button></h3>
+            <table id="education-table">
+                <tr>
+                    <th>Name</th>
+                    <th>Branch</th>
+                    <th>Location</th>
+                    <th>CGPA</th>
+                    <th>Actions</th>
+                </tr>
+                <tr>
+                    <td contenteditable="true">XYZ University</td>
+                    <td contenteditable="true">Computer Science</td>
+                    <td contenteditable="true">New York</td>
+                    <td contenteditable="true">8.5</td>
+                    <td><button class="delete-row">Delete</button></td>
+                </tr>
+            </table>
+        </div>
+
+        <button id="download-btn">Download Resume</button>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
