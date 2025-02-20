@@ -7,16 +7,41 @@ document.getElementById("upload").addEventListener("change", function (event) {
     reader.readAsDataURL(event.target.files[0]);
 });
 
-// Enable Editing for All Sections
+// Fix Edit Function - Show Popup for Editing
+function showEditPopup(element) {
+    const currentText = element.innerText;
+    const newText = prompt("Edit the text:", currentText);
+    if (newText !== null) {
+        element.innerText = newText;
+    }
+}
+
 document.querySelectorAll(".edit-btn").forEach(button => {
     button.addEventListener("click", () => {
-        let section = button.parentElement.nextElementSibling;
+        let section = button.closest(".section").querySelector("ul, p, table");
         if (section) {
-            section.contentEditable = "true";
-            section.style.background = "#f8f9fa";
+            showEditPopup(section);
         }
     });
 });
+
+// Add New Skill, Programming Language, or Certificate
+function addNewItem(sectionId) {
+    const newItem = prompt("Enter new item:");
+    if (newItem) {
+        const list = document.querySelector(`#${sectionId} ul`);
+        if (list) {
+            const li = document.createElement("li");
+            li.innerText = newItem;
+            list.appendChild(li);
+        }
+    }
+}
+
+document.getElementById("add-skill").addEventListener("click", () => addNewItem("skills"));
+document.getElementById("add-language").addEventListener("click", () => addNewItem("programming-languages"));
+document.getElementById("add-certificate").addEventListener("click", () => addNewItem("certifications"));
+
 
 // Add Row in Education Table
 document.getElementById("add-row").addEventListener("click", () => {
